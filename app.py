@@ -7,6 +7,7 @@ from commons import format_class_name
 
 app = Flask(__name__)
 
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
@@ -15,7 +16,7 @@ def upload_file():
             return redirect(request.url)
         file = request.files.get('file')
         if not file:
-            return
+            return render_template('result.html', class_name = "no file has been sent!")
         img_bytes = file.read()
         class_id, class_name = get_prediction(image_bytes=img_bytes)
         class_name = format_class_name(class_name)
