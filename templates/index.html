@@ -40,12 +40,6 @@
             alert('file is too big. images more than 1MB are not allowed')
             return
           }
-
-          let ext = $('#inputfile').val().split('.').pop().toLowerCase();
-          if($.inArray(ext, ['jpg','jpeg']) == -1) {
-            $("#inputfile").val(null);
-            alert('only jpeg/jpg files are allowed!');
-          }
       });
     </script>
     <!-- Github Ribbon Start-->
